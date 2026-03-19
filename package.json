@@ -1,0 +1,25 @@
+{
+  "name": "lol_app",
+  "version": "1.0.0",
+  "description": "An API for LOL game :)",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "css": "tailwindcss -i public/css/tailwind.css -o public/css/app.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "pug": "^3.0.4",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

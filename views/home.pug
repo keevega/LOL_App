@@ -1,0 +1,54 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title LOL Profile Check 
+        link(rel="stylesheet", href="/css/app.css")
+        link(href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet")
+    body(class="bg-sky-950")
+    header(class="fixed top-0 w-full z-50 bg-sky-950/70 backdrop-blur-xl shadow-sm shadow-black/20")
+        div(class="flex items-center justify-center px-6 h-20 w-full max-w-7xl mx-auto")
+            h1(class="text-3xl font-semibold tracking-tighter text-yellow-600") League of Legends Search
+    main(class="pt-24 pb-24 px-6 max-w-lg mx-auto")
+        section(class="mb-8")
+            form(method="POST" action="/" class="relative group")
+                h2(class="text-center font-semibold text-xl text-teal-500 my-2") Introduce tu Summoner Name + Tag
+                div(class="relative flex items-center bg-teal-400/20 rounded-2xl px-6 py-4 gap-3")
+                    input(class="caret-white text-center bg-transparent outline-none w-full font-normal text-blue-50 placeholder:text-center placeholder-amber-50/20 text-lg" placeholder="e.g. Keevega#LAN" type="text" name="summonerName")
+                    button(type="submit" class="material-symbols-outlined text-white mr-3 cursor-pointer transition-transform hover:scale-110" data-icon="search") search
+        if error
+            h3(class="text-red-500 font-bold text-center") Este usuario no existe
+        if icono
+            div(class="group relative bg-zinc-300 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1")
+                div(class="flex items-start gap-5")
+                    //- Sección de Imagen de Perfil y Verificado
+                    div(class="relative shrink-0")
+                        img(
+                            alt="Profile Icon" 
+                            class="w-16 h-16 rounded-lg object-cover" 
+                            data-alt="Summoner Icon" 
+                            src="https://ddragon.leagueoflegends.com/cdn/16.6.1/img/profileicon/"+icono+".png"
+                        )
+                    //- Sección de Información del Jugador
+                    div(class="flex-1 min-w-0")
+                        div(class="flex justify-between items-start")
+                            div
+                                h3(class="font-headline text-on-surface font-bold text-lg leading-tight truncate")=`${user}#${tag}` 
+                                p(class="font-label text-emerald-600 text-xs font-bold uppercase tracking-wider mb-3")=`${tier} ${rank}`
+                        
+                        //- Grid de Estadísticas (LP, Wins, Losses)
+                        div(class="grid grid-cols-3 gap-2 bg-surface-container-low rounded-lg p-2.5")
+                            div(class="text-center")
+                                p(class="text-[10px] font-label text-on-surface-variant uppercase tracking-tighter") LP
+                                p(class="text-sm font-bold text-primary")=leaguePoints
+                            
+                            div(class="text-center border-x border-outline-variant/20 px-1")
+                                p(class="text-[10px] font-label text-on-surface-variant uppercase tracking-tighter") Wins
+                                p(class="text-sm font-bold text-green-600")=wins
+                            
+                            div(class="text-center")
+                                p(class="text-[10px] font-label text-on-surface-variant uppercase tracking-tighter") Losses
+                                p(class="text-sm font-bold text-red-600")=losses
+                    p(class="font-semibold text-black") Nivel
+                    p(class="font-semibold text-black")=level 
